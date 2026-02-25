@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chest Disease Diagnosis System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <!-- Theme Toggle Button moved to header -->
+    <!-- Header Section -->
+    <header class="py-3" style="background-color: var(--header-bg);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="mb-0"><i class="fas fa-lungs me-2"></i>Chest Disease Diagnosis</h1>
+                </div>
+                <div class="col-md-6">
+                    <nav class="text-md-end d-flex align-items-center justify-content-end">
+                        <a href="#home" class="me-3">Home</a>
+                        <a href="#upload" class="me-3">Analyze</a>
+                        <a href="#doctors" class="me-3">Doctors</a>
+                        <a href="#about" class="me-3">About</a>
+                        <div class="theme-toggle ms-3" id="theme-toggle">
+                            <span id="theme-label">🌙</span>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Blurred Background -->
+    <section id="home" class="py-3" style="position: relative; overflow: hidden; padding: 30px 0 40px;">
+        <!-- Blurred Background -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(20, 20, 20, 0.95)), url('https://img.freepik.com/free-photo/3d-medical-background-with-skeleton-chest-area-highlighted_1048-10113.jpg'); background-size: cover; background-position: center; filter: blur(5px); opacity: 0.9; z-index: 0;"></div>
+        
+        <!-- Content -->
+        <div class="container position-relative" style="z-index: 1;">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2 class="display-4 fw-bold mb-4" style="color: #fff; text-shadow: 0 0 15px rgba(229, 57, 53, 0.8), 0 0 30px rgba(229, 57, 53, 0.4);">Chest Disease Diagnosis</h2>
+                    <p style="color: #fff; margin-bottom: 25px; font-size: 1.4rem; letter-spacing: 0.5px; font-weight: 300; text-shadow: 0 0 8px rgba(229, 57, 53, 0.5); max-width: 900px; margin-left: auto; margin-right: auto; font-family: 'Calisto MT', 'Bookman Old Style', serif;">An advanced system using artificial intelligence and deep learning technologies to analyze chest X-ray images and diagnose diseases with high accuracy.</p>
+                    
+                    <!-- Spacer -->
+                    <div style="height: 15px;"></div>
+                    
+                    <!-- Disease Carousel -->
+                    <div class="position-relative" style="max-width: 1000px; margin: 0 auto;">
+                        <div id="diseaseCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                            <!-- Indicators -->
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#diseaseCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#diseaseCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#diseaseCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#diseaseCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <!-- Slide 1 -->
+                                <div class="carousel-item active">
+                                    <div class="row g-4 justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="disease-card">
+                                                <i class="fas fa-lungs-virus" title="Infection in the lungs"></i>
+                                                <h5>Pneumonia</h5>
+                                                <p class="disease-desc">Lung infection causing inflammation</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="disease-card">
+                                                <i class="fas fa-compress-arrows-alt" title="Collapsed lung"></i>
+                                                <h5>Atelectasis</h5>
+                                                <p class="disease-desc">Partial or complete lung collapse</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="disease-card">
+                                                <i class="fas fa-heartbeat" title="Enlarged heart"></i>
+                                                <h5>Cardiomegaly</h5>
+                                                <p class="disease-desc">Abnormal heart enlargement</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 2 -->
+                                <div class="carousel-item">
+                                    <div class="row g-4 justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="disease-card">
+                                                <i class="fas fa-tint" title="Fluid accumulation"></i>
+                                                <h5>Effusion</h5>
+                                                <p class="disease-desc">Abnormal fluid in lung space</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="disease-card">
+                                                <i class="fas fa-cloud-rain" title="Abnormal substance in lungs"></i>
+                                                <h5>Infiltration</h5>
+                                                <p class="disease-desc">Substance accumulation in lungs</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="disease-card">
+                                                <i class="fas fa-weight" title="Abnormal growth"></i>
+                                                <h5>Mass</h5>
+                                                <p class="disease-desc">Abnormal tissue growth</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 3 -->
+                                <div class="carousel-item">
+                                    <div class="row g-4 justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="disease-card">
+                                                <i class="fas fa-dot-circle" title="Small lung nodule"></i>
+                                                <h5>Nodule</h5>
+                                                <p class="disease-desc">Small lung tissue growth</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="disease-card">
+                                                <i class="fas fa-wind" title="Air in chest cavity"></i>
+                                                <h5>Pneumothorax</h5>
+                                                <p class="disease-desc">Air in chest cavity</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="disease-card">
+                                                <i class="fas fa-braille" title="Lung scarring"></i>
+                                                <h5>Fibrosis</h5>
+                                                <p class="disease-desc">Lung tissue scarring</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 4 -->
+                                <div class="carousel-item">
+                                    <div class="row g-4 justify-content-center">
+                                        <div class="col-md-4">
+                                            <div class="disease-card">
+                                                <i class="fas fa-procedures" title="Organ protrusion"></i>
+                                                <h5>Hernia</h5>
+                                                <p class="disease-desc">Organ protrusion into chest</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Navigation Buttons -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#diseaseCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#diseaseCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    
+                    <a href="#upload" class="btn btn-primary btn-lg px-4 py-2">Start Analysis Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section id="upload" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold"><i class="fas fa-upload me-2"></i>X-ray Image Analysis</h2>
+                <p class="lead">Upload a chest X-ray image to get an accurate diagnosis</p>
+            </div>
+            <div class="row">
+                <!-- Left side: Upload and Image Preview -->
+                <div class="col-md-6">
+                    <div class="card shadow-lg" style="border-radius: 12px; overflow: hidden; border: none;">
+                        <div class="card-body p-4">
+                            <!-- Upload Area -->
+                            <div id="drop-area" class="upload-area text-center p-4 mb-3 rounded" style="border: 2px dashed #444; background-color: rgba(229, 57, 53, 0.05);">
+                                <form class="upload-form">
+                                    <input type="file" id="fileInput" class="d-none" accept="image/*">
+                                    <img id="preview" src="" alt="X-ray Image" class="img-fluid rounded" style="display: none; max-height: 300px;">
+                                    <div class="upload-content">
+                                        <i class="fas fa-cloud-upload-alt fa-3x mb-2" style="color: #e53935;"></i>
+                                        <p class="upload-text mb-2">Upload the X-ray Image 🩺</p>
+                                        <p class="upload-hint text-muted small mb-2">Drag & drop or click to browse</p>
+                                        <button class="select-button btn btn-primary btn-sm px-4">Choose File</button>
+                                        <button id="removeButton" class="btn btn-danger btn-sm position-absolute" style="top: 10px; right: 10px; display: none;"><i class="fas fa-times"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                            <button id="analyzeButton" class="btn btn-primary w-100">Analyze Image</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right side: Analysis Results -->
+                <div class="col-md-6">
+                    <div class="card shadow-lg" style="border-radius: 12px; overflow: hidden; border: none;">
+                        <div class="card-body p-4">
+                            <div id="analysis-output">
+                                <h4 class="analysis-title mb-4">Analysis Results</h4>
+                                
+                                <!-- Processing Message -->
+                                <div id="processingMessage" class="message-container text-center py-5" style="display: none;">
+                                    <div class="spinner-border text-primary mb-3" role="status"></div>
+                                    <p class="processing-text">Processing...</p>
+                                </div>
+                                
+                                <!-- Results Message -->
+                                <div id="resultMessage" class="message-container" style="display: none;">
+                                    <div class="result-text"></div>
+                                </div>
+                                
+                                <div class="text-center py-5" id="results-placeholder">
+                                    <i class="fas fa-microscope fa-4x mb-3" style="color: #555;"></i>
+                                    <h5 class="text-secondary">Upload an X-ray image to see analysis results</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="py-5" style="background-color: var(--doctor-section-bg); color: var(--text-color);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold"><i class="fas fa-user-md me-2"></i>Specialist Doctors</h2>
+                <p class="lead">Choose your governorate to find the best chest doctors near you</p>
+            </div>
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-6">
+                    <div class="form-group mb-4">
+                        <label for="governorateSelect" class="form-label mb-2 fw-bold">Select Governorate</label>
+                        <select class="form-select form-select-lg py-3" id="governorateSelect" style="background-color: #222; color: white; border-color: #444;">
+                            <option selected disabled>Select Governorate</option>
+                            <option value="cairo">Cairo</option>
+                            <option value="alexandria">Alexandria</option>
+                            <option value="giza">Giza</option>
+                            <option value="sharqia">Sharqia</option>
+                            <option value="el-daqahlia">Dakahlia</option>
+                            <option value="beheira">Beheira</option>
+                            <option value="gharbia">Gharbia</option>
+                            <option value="minya">Minya</option>
+                            <option value="assiut">Assiut</option>
+                            <option value="sohag">Sohag</option>
+                            <option value="el-qalyubia">Qalyubia</option>
+                            <option value="luxor">Luxor</option>
+                            <option value="aswan">Aswan</option>
+                            <option value="fayoum">Fayoum</option>
+                            <option value="suez">Suez</option>
+                            <option value="ismailia">Ismailia</option>
+                            <option value="port-said">Port Said</option>
+                            <option value="damietta">Damietta</option>
+                            <option value="kafr-el-sheikh">Kafr El-Sheikh</option>
+                            <option value="beni-suef">Beni Suef</option>
+                            <option value="el-menufia">Menofia</option>
+                            <option value="red-sea">Red Sea</option>
+                            <option value="matrouh">Matrouh</option>
+                            <option value="north-sinai">North Sinai</option>
+                            <option value="south-sinai">South Sinai</option>
+                            <option value="new-valley">New Valley</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="doctorsContainer" style="display: none;">
+                <h3 class="mb-4 section-title">Available Specialists</h3>
+                <div id="doctorsList" class="doctors-list row"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="display-5 fw-bold mb-4">About Chest Disease Diagnosis System</h2>
+                    <p class="lead mb-4">An advanced system using artificial intelligence and deep learning technologies to analyze chest X-ray images and diagnose diseases with high accuracy.</p>
+                    <div class="mb-4">
+                        <h5><i class="fas fa-check-circle me-2" style="color: #e53935;"></i>High Diagnosis Accuracy</h5>
+                        <p>The system provides up to 95% diagnosis accuracy compared to specialist doctors.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h5><i class="fas fa-check-circle me-2" style="color: #e53935;"></i>Fast Analysis</h5>
+                        <p>The system can analyze images and provide diagnosis results in seconds.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h5><i class="fas fa-check-circle me-2" style="color: #e53935;"></i>Easy to Use</h5>
+                        <p>Simple and user-friendly interface that allows users to upload images and get results easily.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card shadow-lg">
+                        <div class="card-body p-4">
+                            <h4 class="card-title mb-4 disease-section-title">Diseases That Can Be Diagnosed</h4>
+                            <div class="position-relative">
+                                <button class="disease-navigation prev">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <div class="disease-mindmap">
+                                    <div class="disease-branches">
+                                        <div class="disease-branch">
+                                        <div class="disease-node" data-tooltip="Collapsed lung">
+                                            <i class="fas fa-lungs"></i>
+                                            <span>Atelectasis <span class="d-block ar-text">انخماص الرئة</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="disease-branch">
+                                        <div class="disease-node" data-tooltip="Enlarged heart">
+                                            <i class="fas fa-heart"></i>
+                                            <span>Cardiomegaly <span class="d-block ar-text">تضخم القلب</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="disease-branch">
+                                        <div class="disease-node" data-tooltip="Lung tissue filled with liquid">
+                                            <i class="fas fa-lungs-virus"></i>
+                                            <span>Consolidation <span class="d-block ar-text">تصلب الرئة</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="disease-branch">
+                                        <div class="disease-node" data-tooltip="Fluid accumulation in tissues">
+                                            <i class="fas fa-tint"></i>
+                                            <span>Edema <span class="d-block ar-text">الوذمة</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="disease-branch">
+                                        <div class="disease-node" data-tooltip="Fluid around the lungs">
+                                            <i class="fas fa-water"></i>
+                                            <span>Effusion <span class="d-block ar-text">الانصباب الجنبي</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="disease-branch">
+                                        <div class="disease-node" data-tooltip="Damaged air sacs in lungs">
+                                            <i class="fas fa-wind"></i>
+                                            <span>Emphysema <span class="d-block ar-text">النفاخ الرئوي</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="disease-branch">
+                                        <div class="disease-node" data-tooltip="Scarring of lung tissue">
+                                            <i class="fas fa-network-wired"></i>
+                                            <span>Fibrosis <span class="d-block ar-text">تليف الرئة</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="disease-branch">
+                                        <div class="disease-node" data-tooltip="Organ protrusion through tissue">
+                                            <i class="fas fa-circle-notch"></i>
+                                            <span>Hernia <span class="d-block ar-text">فتق</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="disease-branch">
+                                        <div class="disease-node" data-tooltip="Substance accumulation in tissue">
+                                            <i class="fas fa-virus"></i>
+                                            <span>Infiltration <span class="d-block ar-text">ارتشاح</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="disease-branch">
+                                        <div class="disease-node" data-tooltip="Abnormal tissue growth">
+                                            <i class="fas fa-circle"></i>
+                                            <span>Mass <span class="d-block ar-text">كتلة</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="disease-branch">
+                                        <div class="disease-node" data-tooltip="Small rounded tissue growth">
+                                            <i class="fas fa-dot-circle"></i>
+                                            <span>Nodule <span class="d-block ar-text">عقدة</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="disease-branch">
+                                        <div class="disease-node" data-tooltip="Thickened lung lining">
+                                            <i class="fas fa-layer-group"></i>
+                                            <span>Pleural Thickening <span class="d-block ar-text">تثخن الجنبة</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="disease-branch">
+                                        <div class="disease-node" data-tooltip="Lung inflammation">
+                                            <i class="fas fa-lungs-virus"></i>
+                                            <span>Pneumonia <span class="d-block ar-text">الالتهاب الرئوي</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="disease-branch">
+                                        <div class="disease-node" data-tooltip="Collapsed lung due to air">
+                                            <i class="fas fa-wind"></i>
+                                            <span>Pneumothorax <span class="d-block ar-text">استرواح الصدر</span></span>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="disease-navigation next">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h5 class="mb-3">Development Team</h5>
+                    <div class="row g-2">
+                        <div class="col-md-6 col-6">
+                            <div class="team-member-compact p-2" style="background-color: rgba(255,255,255,0.05); border-radius: 6px;">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-user-circle me-2" style="color: #e53935;"></i>
+                                    <div>
+                                        <p class="mb-0 small fw-bold">ALI FATHY ELGAZAYRLI</p>
+                                        <p class="mb-0 small" style="color: #e53935; font-size: 0.7rem;">ID: 4231211</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-6">
+                            <div class="team-member-compact p-2" style="background-color: rgba(255,255,255,0.05); border-radius: 6px;">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-user-circle me-2" style="color: #e53935;"></i>
+                                    <div>
+                                        <p class="mb-0 small fw-bold">MOHAMED E. ABDELKADER</p>
+                                        <p class="mb-0 small" style="color: #e53935; font-size: 0.7rem;">ID: 4231416</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-6">
+                            <div class="team-member-compact p-2" style="background-color: rgba(255,255,255,0.05); border-radius: 6px;">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-user-circle me-2" style="color: #e53935;"></i>
+                                    <div>
+                                        <p class="mb-0 small fw-bold">MOHAMED A. ABO SHANAB</p>
+                                        <p class="mb-0 small" style="color: #e53935; font-size: 0.7rem;">ID: 4231186</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-6">
+                            <div class="team-member-compact p-2" style="background-color: rgba(255,255,255,0.05); border-radius: 6px;">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-user-circle me-2" style="color: #e53935;"></i>
+                                    <div>
+                                        <p class="mb-0 small fw-bold">MOHAMED M. EBRAHEM</p>
+                                        <p class="mb-0 small" style="color: #e53935; font-size: 0.7rem;">ID: 4231532</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-6">
+                            <div class="team-member-compact p-2" style="background-color: rgba(255,255,255,0.05); border-radius: 6px;">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-user-circle me-2" style="color: #e53935;"></i>
+                                    <div>
+                                        <p class="mb-0 small fw-bold">AHMED RAJAB ELHADIDI</p>
+                                        <p class="mb-0 small" style="color: #e53935; font-size: 0.7rem;">ID: 4231544</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="mb-3">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>moamedomara499@gmail.com</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>01064444805</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>Faculty of Artificial Intelligence, Delta University</li>
+                    </ul>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="small mb-0">&copy; 2025 Chest Disease Diagnosis System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
